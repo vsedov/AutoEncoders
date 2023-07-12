@@ -59,8 +59,7 @@ class AE(nn.Module):
 
     def forward(self, inputs):
         encode = self.encoder(inputs)
-        decode = self.decoder(encode)
-        return decode
+        return self.decoder(encode)
 
 
 def main() -> None:
@@ -130,7 +129,7 @@ def main() -> None:
             optimiser.step()
             loss_count += train_loss.item()
         print(
-            f"epoch {epoch +1 } / {100} loss = {loss_count} and given loss is {train_loss}"
+            f"epoch {epoch + 1} / 100 loss = {loss_count} and given loss is {train_loss}"
         )
 
     test_examples = None
